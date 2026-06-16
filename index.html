@@ -10,21 +10,20 @@
   <div class="container">
     <h1>Daily OTP Sender</h1>
 
-    <p>Click the button to generate a random OTP.</p>
+    <label for="friendSelect">Select Friend</label>
+    <select id="friendSelect">
+      <option value="">-- Select Name --</option>
+    </select>
 
     <div class="otp-box">
       <span id="otp">------</span>
     </div>
 
     <button onclick="generateOTP()">Generate OTP</button>
-
-    <div class="buttons">
-           <button onclick="sendToFriend()">Send WhatsApp to Friend</button>
-           <button onclick="sendToMe()">Send WhatsApp to Me</button>
-    </div>
+    <button onclick="sendToSelectedFriend()">Send WhatsApp</button>
 
     <p class="note">
-      This will open your phone SMS app. You need to press Send manually.
+      WhatsApp will open with the OTP message. You need to press Send manually.
     </p>
   </div>
 
