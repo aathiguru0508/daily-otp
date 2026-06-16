@@ -1,7 +1,7 @@
 let currentOTP = "";
 
-const friendPhone = "+91XXXXXXXXXX";
-const myPhone = "+91XXXXXXXXXX";
+const friendPhone = "9845697179";
+const myPhone = "9944609796";
 
 function generateOTP() {
   currentOTP = "";
