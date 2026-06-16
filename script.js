@@ -1,7 +1,34 @@
 let currentOTP = "";
 
-const friendPhone = "9845697179";
-const myPhone = "9944609796";
+const friends = [
+  {
+    name: "Avinash",
+    phone: "9392838405"
+  },
+  {
+    name: "Greeshma",
+    phone: "9845697179"
+  },
+  {
+    name: "Rajath",
+    phone: "8618999867"
+  },
+  {
+    name: "Me",
+    phone: "9944609796"
+  }
+];
+
+function loadFriends() {
+  const friendSelect = document.getElementById("friendSelect");
+
+  friends.forEach((friend, index) => {
+    const option = document.createElement("option");
+    option.value = index;
+    option.textContent = friend.name;
+    friendSelect.appendChild(option);
+  });
+}
 
 function generateOTP() {
   currentOTP = "";
@@ -13,31 +40,28 @@ function generateOTP() {
   document.getElementById("otp").innerText = currentOTP;
 }
 
-function getMessage() {
-  if (!currentOTP) {
-    alert("Please generate OTP first.");
-    return null;
-  }
+function sendToSelectedFriend() {
+  const selectedIndex = document.getElementById("friendSelect").value;
 
-  return `Your daily OTP is: ${currentOTP}`;
-}
-
-function sendWhatsApp(phoneNumber) {
-  const message = getMessage();
-
-  if (!message) {
+  if (selectedIndex === "") {
+    alert("Please select a friend.");
     return;
   }
 
+  if (!currentOTP) {
+    alert("Please generate OTP first.");
+    return;
+  }
+
+  const selectedFriend = friends[selectedIndex];
+
+  const message = `Hi ${selectedFriend.name}, your daily OTP is: ${currentOTP}`;
   const encodedMessage = encodeURIComponent(message);
 
-  window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
+  window.open(
+    `https://wa.me/${selectedFriend.phone}?text=${encodedMessage}`,
+    "_blank"
+  );
 }
 
-function sendToFriend() {
-  sendWhatsApp(friendPhone);
-}
-
-function sendToMe() {
-  sendWhatsApp(myPhone);
-}
+loadFriends();
