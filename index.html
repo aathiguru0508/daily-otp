@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily OTP Sender</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Daily OTP Sender</h1>
+
+    <p>Click the button to generate a random OTP.</p>
+
+    <div class="otp-box">
+      <span id="otp">------</span>
+    </div>
+
+    <button onclick="generateOTP()">Generate OTP</button>
+
+    <div class="buttons">
+      <button onclick="sendToFriend()">Send to Friend</button>
+      <button onclick="sendToMe()">Send to Me</button>
+    </div>
+
+    <p class="note">
+      This will open your phone SMS app. You need to press Send manually.
+    </p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
