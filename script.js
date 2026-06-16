@@ -22,7 +22,7 @@ function getMessage() {
   return `Your daily OTP is: ${currentOTP}`;
 }
 
-function sendSMS(phoneNumber) {
+function sendWhatsApp(phoneNumber) {
   const message = getMessage();
 
   if (!message) {
@@ -31,13 +31,13 @@ function sendSMS(phoneNumber) {
 
   const encodedMessage = encodeURIComponent(message);
 
-  window.location.href = `sms:${phoneNumber}?body=${encodedMessage}`;
+  window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
 }
 
 function sendToFriend() {
-  sendSMS(friendPhone);
+  sendWhatsApp(friendPhone);
 }
 
 function sendToMe() {
-  sendSMS(myPhone);
+  sendWhatsApp(myPhone);
 }
